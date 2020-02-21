@@ -36,16 +36,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # Java (Useless when use JENV)
 ##############################################################################
-# export JAVA_HOME=$(/usr/libexec/java_home)
-# export PATH=${JAVA_HOME}/bin:$PATH
-
-# Java && Java Version Manager (JENV)
-##############################################################################
-# if which jenv > /dev/null; then eval "$(jenv init -)"; fi
-# export PATH="$HOME/.jenv/bin:$PATH"
-# export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"
-# alias jenv_set_java_home='export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"'
-# export PATH=${JAVA_HOME}/bin:$PATH
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH=${JAVA_HOME}/bin:$PATH
 
 # Scala
 ##############################################################################

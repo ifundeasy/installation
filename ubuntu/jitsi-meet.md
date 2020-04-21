@@ -65,9 +65,7 @@ sudo /usr/share/jitsi-meet/scripts/install-letsencrypt-cert.sh
 ```
 
 ## Testing
-Browse https://ubuntuvm.com 
-Browse https://IP_ADDRESS
-Remember for using HTTPS protocol
+Remember for using HTTPS protocol for meet your jitsi on `https://ubuntuvm.com` or `https://IP_ADDRESS`
 
 ## Services of systemctl
 * jicofo

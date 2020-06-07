@@ -97,6 +97,12 @@ sudo systemctl status mysql.service
 Try login from external computer with command
 ```sh
 mysql -u root -p -h REMOTE_IP_ADDRESS
+mysql> select @@sql_mode;
+mysql> SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+mysql> exit;
+
+mysql -u root -p -h REMOTE_IP_ADDRESS
+mysql> select @@sql_mode;
 ```
 
 ## Nginx
@@ -245,10 +251,11 @@ At the page check PHP modules.. it's should be enabled, also check `openssl` mod
 
 ## OSPOS
 ```sh
-wget https://github.com/opensourcepos/opensourcepos/releases/download/3.3.1/opensourcepos.20191214181241.3.3.1.c786d4.zip ospos-3.3.1.zip
-unzip ospos-3.3.1.zip -d /var/www/yourdomain.com
+wget https://github.com/opensourcepos/opensourcepos/releases/download/3.3.1/opensourcepos.20191214181241.3.3.1.c786d4.zip
+sudo rm -rf /var/www/yourdomain.com
+sudo unzip opensourcepos.20191214181241.3.3.1.c786d4.zip -d /var/www/yourdomain.com
 sudo chown www-data /var/www/yourdomain.com -R
-rm -f ospos-3.3.1.zip
+rm -f opensourcepos.20191214181241.3.3.1.c786d4.zip
 ```
 
 Import database

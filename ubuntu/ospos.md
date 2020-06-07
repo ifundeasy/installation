@@ -79,6 +79,12 @@ mysql> FLUSH PRIVILEGES;
 mysql> EXIT;
 ```
 
+Disable strict SQL mode, create file in `/etc/mysql/conf.d/disable_strict_mode.cnf` and add this lines
+```text
+[mysqld]
+sql_mode=IGNORE_SPACE,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+```
+
 Open MySQL port `3306`. Update `bind-address` value with `0.0.0.0` on `/etc/mysql/mysql.conf.d/mysqld.cnf`
 ```sh
 # bind-address = 0.0.0.0
@@ -97,12 +103,6 @@ sudo systemctl status mysql.service
 Try login from external computer with command
 ```sh
 mysql -u root -p -h REMOTE_IP_ADDRESS
-mysql> select @@sql_mode;
-mysql> SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
-mysql> exit;
-
-mysql -u root -p -h REMOTE_IP_ADDRESS
-mysql> select @@sql_mode;
 ```
 
 ## Nginx
